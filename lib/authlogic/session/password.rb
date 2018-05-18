@@ -134,7 +134,8 @@ module Authlogic
             configure_password_methods
             self.class.configured_password_methods = true
           end
-          '#@{password_field}' ||= nil
+          @password ||= nil
+          @password_changed ||= nil
           super
         end
 
