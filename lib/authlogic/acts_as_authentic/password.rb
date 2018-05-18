@@ -4,12 +4,6 @@ module Authlogic
     # password, salting it, and verifying it. It can also help you transition to a new
     # encryption algorithm. See the Config sub module for configuration options.
     module Password
-
-      def initialize
-        @password_changed = nil
-        super
-      end
-
       def self.included(klass)
         klass.class_eval do
           extend Config
@@ -280,6 +274,7 @@ module Authlogic
 
       # The methods related to the password field.
       module Methods
+
         def self.included(klass)
           return if klass.crypted_password_field.nil?
 
@@ -307,13 +302,6 @@ module Authlogic
 
         # :nodoc:
         module InstanceMethods
-
-          def initialize
-            @password_changed = nil
-            @password = nil
-            super
-          end
-
           # The password
           def password
             @password
