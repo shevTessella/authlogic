@@ -13,7 +13,7 @@ module Authlogic
       def credentials=(value)
         super
         values = value.is_a?(Array) ? value : [value]
-        self.id = values.last if values.last.is_a?(Symbol)
+        self.set_id(values.last) if values.last.is_a?(Symbol)
       end
 
       # Allows you to set a unique identifier for your session, so that you can
@@ -33,10 +33,13 @@ module Authlogic
       #
       # Lastly, to retrieve your session with the id check out the find class
       # method.
+      def set_id(val)
+        @id = val
+      end
+
       def id
         @id
       end
-
       private
 
       # Used for things like cookie_key, session_key, etc.

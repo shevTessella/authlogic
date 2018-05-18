@@ -10,7 +10,7 @@ module SessionTest
 
     def test_id
       session = UserSession.new
-      session.id = :my_id
+      session.set_id(:my_id)
       assert_equal :my_id, session.id
     end
   end

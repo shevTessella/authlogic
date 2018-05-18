@@ -44,7 +44,7 @@ module SessionTest
           { find_options: { conditions: "awesome = 1" }, id: "some_id" },
           session.scope
         )
-        session.id = :another_id
+        session.set_id(:another_id)
         assert_equal "another_id_some_id_test", session.send(:build_key, "test")
       end
     end
