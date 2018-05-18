@@ -20,10 +20,6 @@ module Authlogic
 
       # All configuration for the password aspect of acts_as_authentic.
       module Config
-        def initialize
-          @password_changed = nil
-          super
-        end
         # The name of the crypted_password field in the database.
         #
         # * <tt>Default:</tt> :crypted_password, :encrypted_password, :password_hash, or :pw_hash
@@ -311,6 +307,13 @@ module Authlogic
 
         # :nodoc:
         module InstanceMethods
+
+          def initialize
+            @password_changed = nil
+            @password = nil
+            super
+          end
+
           # The password
           def password
             @password
