@@ -4,6 +4,12 @@ module Authlogic
     # password, salting it, and verifying it. It can also help you transition to a new
     # encryption algorithm. See the Config sub module for configuration options.
     module Password
+
+      def initialize
+        instance_variable_set("@#{password_field}", nil)
+        super
+      end
+
       def self.included(klass)
         klass.class_eval do
           extend Config
