@@ -5,7 +5,7 @@ module Authlogic
     module Id
 
       def initialize
-        @id = nil
+        @id ||= nil
         super
       end
 
