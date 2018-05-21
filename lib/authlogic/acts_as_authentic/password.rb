@@ -301,14 +301,14 @@ module Authlogic
 
         # :nodoc:
         module InstanceMethods
-          # The password
-          def password
-            @password
-          end
-
           def initialize(*args)
             @password = nil
             super
+          end
+
+          # The password
+          def password
+            @password
           end
 
           # This is a virtual method. Once a password is passed to it, it will
