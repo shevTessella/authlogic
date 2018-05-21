@@ -306,6 +306,11 @@ module Authlogic
             @password
           end
 
+          def initialize(*args)
+            @password = nil
+            super
+          end
+
           # This is a virtual method. Once a password is passed to it, it will
           # create new password salt as well as encrypt the password.
           def password=(pass)
